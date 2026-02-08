@@ -1,0 +1,23 @@
+:root{--blue:#123a8f;--light:#eaf2ff;--text:#0f172a}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,sans-serif;background:#f1f5f9;color:var(--text)}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:240px;background:var(--blue);color:#fff;padding:18px}
+.brand{font-weight:700;margin-bottom:16px} .sidebar nav{display:flex;flex-direction:column;gap:6px}
+.sidebar a{color:#dbeafe;text-decoration:none;padding:10px;border-radius:8px}.sidebar a.active,.sidebar a:hover{background:#ffffff1f;color:#fff}
+.content{margin-left:240px;padding:22px;display:grid;gap:18px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px}
+.topbar h1{margin:0;font-size:20px}.topbar p{margin:4px 0 0;color:#64748b}
+.section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-between;align-items:center}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn-primary{background:#1d4ed8;color:#fff;border:none;padding:9px 12px;border-radius:8px}
+.btn-outline{background:#fff;color:#334155;border:1px solid #cbd5e1;padding:9px 12px;border-radius:8px}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px}.kpi p{margin:0;color:#64748b;font-size:13px}.kpi h3{margin:6px 0 0;color:#123a8f}
+.panel-grid{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px}
+.card h2,.card h3{margin:0 0 8px 0}
+table{width:100%;border-collapse:collapse} th,td{border-bottom:1px solid #e2e8f0;padding:9px;text-align:left;font-size:14px}
+.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px} label{display:grid;gap:6px;font-size:14px}
+.search{padding:10px;border:1px solid #cbd5e1;border-radius:8px;max-width:320px}
+.chips{display:flex;gap:8px}.chips span{background:var(--light);padding:6px 10px;border-radius:999px;color:var(--blue);font-size:13px}
+@media (max-width:1100px){.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panel-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.sidebar{position:static;width:100%;height:auto}.content{margin-left:0}}

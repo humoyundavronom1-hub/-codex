@@ -1,0 +1,14 @@
+{
+  "name": "telegram-gov-admin-frontend",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Professional frontend-only government style admin panel on Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Government Telegram Admin Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Gov Admin</div>
+    <nav>
+      <a class="active" href="#dashboard">Dashboard</a>
+      <a href="#groups">Groups</a>
+      <a href="#rules">Rules Engine</a>
+      <a href="#users">Users</a>
+      <a href="#leaderboards">Leaderboards</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#logs">Logs</a>
+      <a href="#alerts">Alerts</a>
+      <a href="#settings">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div>
+        <h1>Telegram Moderation Platform</h1>
+        <p>Rasmiy boshqaruv va analitika paneli</p>
+      </div>
+      <button class="btn-outline">Admin Profil</button>
+    </header>
+
+    <section id="dashboard" class="section">
+      <div class="section-head">
+        <h2>Dashboard</h2>
+        <div class="actions">
+          <select><option>So‘nggi 7 kun</option></select>
+          <select><option>Barcha guruhlar</option></select>
+          <button class="btn-primary">CSV export</button>
+        </div>
+      </div>
+      <div class="kpi-grid" id="kpiGrid"></div>
+      <div class="panel-grid">
+        <article class="card"><h3>Unlock Trend</h3><canvas id="lineChart" height="140"></canvas></article>
+        <article class="card"><h3>Alerts by Type</h3><canvas id="barChart" height="140"></canvas></article>
+      </div>
+    </section>
+
+    <section id="groups" class="section card">
+      <h2>Groups</h2>
+      <table><thead><tr><th>Nomi</th><th>Telegram ID</th><th>Status</th><th>Invite</th><th>Active</th><th>Action</th></tr></thead><tbody id="groupsBody"></tbody></table>
+    </section>
+
+    <section id="rules" class="section card">
+      <h2>Rules Engine</h2>
+      <div class="form-grid">
+        <label>invite_required <input type="number" value="5" min="1"/></label>
+        <label>reset_on_leave <input type="checkbox" checked/></label>
+        <label>ignore_bots <input type="checkbox" checked/></label>
+        <label>admins_bypass <input type="checkbox" checked/></label>
+        <label>auto_kick_timeout <input type="number" value="3600"/></label>
+        <label>risk_threshold <input type="range" min="0" max="100" value="65"/></label>
+      </div>
+      <div class="actions"><button class="btn-primary">Save</button><button class="btn-outline">Cancel</button></div>
+    </section>
+
+    <section id="users" class="section card">
+      <h2>Users</h2>
+      <input class="search" placeholder="Qidiruv" />
+      <table><thead><tr><th>User</th><th>Invites</th><th>Messages</th><th>Risk</th><th>Action</th></tr></thead><tbody id="usersBody"></tbody></table>
+    </section>
+
+    <section id="leaderboards" class="section card">
+      <h2>Leaderboards</h2>
+      <div class="chips"><span>Kun</span><span>Hafta</span><span>Oy</span></div>
+      <ol id="leaderboardList"></ol>
+    </section>
+
+    <section id="analytics" class="section card"><h2>Analytics</h2><p>Joins/Leaves, Unlock funnel, Invite trends, Messages/day ko‘rsatkichlari.</p></section>
+    <section id="logs" class="section card"><h2>Logs</h2><p>Severity: info / warning / critical.</p></section>
+    <section id="alerts" class="section card"><h2>Alerts</h2><p>Spam, flood va abuse signal monitoring.</p></section>
+    <section id="settings" class="section card"><h2>Settings</h2><p>Admin management, API keys, branding, retention.</p></section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
