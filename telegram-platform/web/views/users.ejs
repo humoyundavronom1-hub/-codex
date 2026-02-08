@@ -1,0 +1,8 @@
+<%- include('partials_header') %>
+<h2 class="text-xl font-bold mb-3">Users</h2>
+<input class="border p-2 rounded bg-white mb-3 w-full" placeholder="Search bar" />
+<table class="w-full bg-white rounded shadow text-sm">
+<thead class="bg-slate-100"><tr><th class="p-2">User</th><th>Invites</th><th>Risk</th><th>Unlocked</th></tr></thead>
+<tbody><% users.forEach(u => { %><tr class="border-t"><td class="p-2"><%= u.full_name %></td><td><%= u.invites %></td><td><%= u.risk_score %></td><td><%= u.unlocked_any %></td></tr><% }) %></tbody>
+</table>
+<%- include('partials_footer') %>
