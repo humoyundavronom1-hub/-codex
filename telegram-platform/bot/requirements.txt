@@ -1,0 +1,4 @@
+pyTelegramBotAPI
+sqlalchemy
+pydantic-settings
+python-dotenv

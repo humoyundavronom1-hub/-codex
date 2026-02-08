@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gov Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-100 font-sans">
+<div class="min-h-screen lg:flex">
+  <aside class="hidden lg:flex lg:flex-col w-64 fixed inset-y-0 bg-blue-900 text-white">
+    <div class="p-5 border-b border-white/20"><h1 class="font-bold">Gov Admin Panel</h1></div>
+    <nav class="p-3 space-y-1 text-sm">
+      <a href="/dashboard" class="block px-3 py-2 rounded hover:bg-white/10">Dashboard</a>
+      <a href="/groups" class="block px-3 py-2 rounded hover:bg-white/10">Groups</a>
+      <a href="/dashboard#rules" class="block px-3 py-2 rounded hover:bg-white/10">Rules Engine</a>
+      <a href="/users" class="block px-3 py-2 rounded hover:bg-white/10">Users</a>
+      <a href="/dashboard#leaderboards" class="block px-3 py-2 rounded hover:bg-white/10">Leaderboards</a>
+      <a href="/analytics" class="block px-3 py-2 rounded hover:bg-white/10">Analytics</a>
+      <a href="/dashboard#logs" class="block px-3 py-2 rounded hover:bg-white/10">Logs</a>
+      <a href="/dashboard#alerts" class="block px-3 py-2 rounded hover:bg-white/10">Alerts</a>
+      <a href="/dashboard#settings" class="block px-3 py-2 rounded hover:bg-white/10">Settings</a>
+      <a href="/logout" class="block px-3 py-2 rounded bg-white/20">Logout</a>
+    </nav>
+  </aside>
+  <div class="lg:ml-64 w-full">
+    <header class="bg-white border-b p-4 flex justify-between"><strong>Telegram Moderation & Analytics</strong><span>Admin</span></header>
+    <main class="p-6">

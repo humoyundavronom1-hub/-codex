@@ -1,0 +1,10 @@
+<%- include('partials_header') %>
+<h2 class="text-xl font-bold mb-3">Groups</h2>
+<table class="w-full bg-white rounded shadow overflow-hidden text-sm">
+<thead class="bg-slate-100"><tr><th class="p-2">Name</th><th>ID</th><th>Status</th><th>Invite req</th><th>Actions</th></tr></thead>
+<tbody>
+<% groups.forEach(g => { %>
+<tr class="border-t"><td class="p-2"><%= g.title %></td><td><%= g.telegram_group_id %></td><td><%= g.is_enabled %></td><td><%= g.invite_required %></td><td>Edit / Disable / Stats</td></tr>
+<% }) %>
+</tbody></table>
+<%- include('partials_footer') %>

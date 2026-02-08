@@ -1,0 +1,2 @@
+# Har 6 soatda SQLite backup
+0 */6 * * * /opt/telegram-platform/scripts/backup_sqlite.sh >> /var/log/telegram-platform-backup.log 2>&1

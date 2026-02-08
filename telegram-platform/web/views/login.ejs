@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-blue-50 min-h-screen flex items-center justify-center">
+<form method="post" action="/login" class="bg-white p-6 rounded shadow w-96 space-y-3">
+  <h1 class="text-xl font-bold text-blue-900">Admin Login</h1>
+  <% if (typeof error !== 'undefined') { %><p class="text-red-600"><%= error %></p><% } %>
+  <input name="email" placeholder="Email" class="w-full border p-2 rounded" required />
+  <input type="password" name="password" placeholder="Password" class="w-full border p-2 rounded" required />
+  <button class="w-full bg-blue-800 text-white py-2 rounded">Kirish</button>
+</form>
+</body></html>

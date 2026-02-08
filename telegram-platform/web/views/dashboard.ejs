@@ -1,0 +1,22 @@
+<%- include('partials_header') %>
+<div class="mb-4 text-sm text-slate-600">Home / Administration / Dashboard</div>
+<div class="grid md:grid-cols-5 gap-4">
+  <div class="bg-white p-4 rounded shadow"><p>Total Groups</p><h3 class="text-2xl font-bold"><%= kpi.total_groups %></h3></div>
+  <div class="bg-white p-4 rounded shadow"><p>Restricted Users</p><h3 class="text-2xl font-bold"><%= kpi.restricted_users %></h3></div>
+  <div class="bg-white p-4 rounded shadow"><p>Unlock Rate</p><h3 class="text-2xl font-bold"><%= kpi.unlock_rate %>%</h3></div>
+  <div class="bg-white p-4 rounded shadow"><p>Invites Today</p><h3 class="text-2xl font-bold"><%= kpi.invites_today %></h3></div>
+  <div class="bg-white p-4 rounded shadow"><p>Spam Alerts</p><h3 class="text-2xl font-bold"><%= kpi.spam_alerts %></h3></div>
+</div>
+<div class="grid lg:grid-cols-2 gap-4 mt-6">
+  <div class="bg-white p-4 rounded shadow"><canvas id="inviteChart"></canvas></div>
+  <div class="bg-white p-4 rounded shadow"><canvas id="leaderChart"></canvas></div>
+</div>
+<section id="leaderboards" class="bg-white p-4 rounded shadow mt-6"><h2 class="font-semibold mb-2">Leaderboards</h2><pre><%= JSON.stringify(lb, null, 2) %></pre></section>
+<section id="logs" class="bg-white p-4 rounded shadow mt-6"><h2 class="font-semibold mb-2">Logs</h2><ul><% logs.forEach(l => { %><li><%= l.created_at %> - <%= l.severity %> - <%= l.action %></li><% }) %></ul></section>
+<section id="alerts" class="bg-white p-4 rounded shadow mt-6"><h2 class="font-semibold">Alerts</h2><p>Flood detection va invite abuse monitoring yoqilgan.</p></section>
+<section id="settings" class="bg-white p-4 rounded shadow mt-6"><h2 class="font-semibold">Settings</h2><p>Admin management, API keys, audit retention.</p></section>
+<script>
+new Chart(document.getElementById('inviteChart'), {type:'line',data:{labels:['D1','D2','D3','D4','D5'],datasets:[{label:'Invite trend',data:[2,8,5,11,9],borderColor:'#1d4ed8'}]}})
+new Chart(document.getElementById('leaderChart'), {type:'bar',data:{labels:['A','B','C'],datasets:[{label:'Top inviters',data:[20,16,11],backgroundColor:'#2563eb'}]}})
+</script>
+<%- include('partials_footer') %>

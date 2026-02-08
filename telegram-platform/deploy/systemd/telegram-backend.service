@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Moderation Backend (FastAPI)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/telegram-platform
+EnvironmentFile=/opt/telegram-platform/.env
+ExecStart=/opt/telegram-platform/.venv/bin/uvicorn backend.main:app --host ${BACKEND_HOST} --port ${BACKEND_PORT}
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
