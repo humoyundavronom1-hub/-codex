@@ -1,0 +1,10 @@
+{
+  "name": "gov-admin-react-monolith",
+  "version": "2.0.0",
+  "private": true,
+  "description": "React frontend + web/backend with shared SQLite",
+  "scripts": {
+    "frontend": "python3 -m http.server 5173 -d frontend",
+    "backend": "uvicorn backend.app:app --host 127.0.0.1 --port 8100"
+  }
+}
