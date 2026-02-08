@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Davlat Boshqaruv Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gov: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e3a8a',
+                900: '#0f172a'
+              }
+            },
+            boxShadow: {
+              panel: '0 1px 3px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.08)'
+            },
+            fontFamily: {
+              sans: ['Inter', 'Roboto', 'Open Sans', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="bg-slate-100 font-sans text-slate-900 antialiased">
+    <a href="#asosiy-kontent" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:shadow">Asosiy kontentga o‘tish</a>
+
+    <div class="min-h-screen lg:flex">
+      <aside class="fixed inset-y-0 left-0 z-30 hidden w-64 bg-gov-800 text-white shadow-panel lg:flex lg:flex-col" aria-label="Asosiy navigatsiya">
+        <div class="border-b border-white/20 px-6 py-5">
+          <p class="text-xs uppercase tracking-[0.2em] text-gov-100">Davlat Konsoli</p>
+          <h1 class="mt-2 text-lg font-semibold">Ma’muriy Panel</h1>
+        </div>
+        <nav class="flex-1 space-y-1 px-3 py-4 text-sm">
+          <a href="#dashboard" class="block rounded-md bg-white/20 px-3 py-2 font-medium">Bosh sahifa</a>
+          <a href="#groups" class="block rounded-md px-3 py-2 hover:bg-white/10">Guruhlar</a>
+          <a href="#rules" class="block rounded-md px-3 py-2 hover:bg-white/10">Qoidalar dvigateli</a>
+          <a href="#users" class="block rounded-md px-3 py-2 hover:bg-white/10">Foydalanuvchilar</a>
+          <a href="#leaderboards" class="block rounded-md px-3 py-2 hover:bg-white/10">Reytinglar</a>
+          <a href="#analytics" class="block rounded-md px-3 py-2 hover:bg-white/10">Analitika</a>
+          <a href="#logs" class="block rounded-md px-3 py-2 hover:bg-white/10">Jurnallar</a>
+          <a href="#alerts" class="block rounded-md px-3 py-2 hover:bg-white/10">Ogohlantirishlar</a>
+          <a href="#settings" class="block rounded-md px-3 py-2 hover:bg-white/10">Sozlamalar</a>
+        </nav>
+      </aside>
+
+      <div class="w-full lg:ml-64">
+        <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
+          <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 md:px-6">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-gov-100 text-gov-800" aria-hidden="true">🏛️</span>
+              <div>
+                <p class="text-sm font-semibold text-gov-800">Milliy Nazorat Markazi</p>
+                <p class="text-xs text-slate-600">Ishonchli va rasmiy monitoring tizimi</p>
+              </div>
+            </div>
+            <button class="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gov-700">
+              Admin: Dilnoza Karimova
+            </button>
+          </div>
+        </header>
+
+        <main id="asosiy-kontent" class="mx-auto max-w-[1400px] space-y-8 px-4 py-6 md:px-6">
+          <nav class="text-sm text-slate-600" aria-label="Non bo‘lagi navigatsiyasi">
+            <ol class="flex items-center gap-2">
+              <li><a href="#" class="hover:text-gov-700">Bosh sahifa</a></li>
+              <li>/</li>
+              <li><a href="#" class="hover:text-gov-700">Ma’muriyat</a></li>
+              <li>/</li>
+              <li class="font-medium text-gov-800">Dashboard</li>
+            </ol>
+          </nav>
+
+          <section id="dashboard" class="space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h2 class="text-xl font-semibold text-gov-900">Boshqaruv paneli</h2>
+              <div class="flex flex-wrap gap-2">
+                <label class="sr-only" for="sana">Sana oralig‘i</label>
+                <select id="sana" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gov-700">
+                  <option>So‘nggi 7 kun</option>
+                  <option>So‘nggi 30 kun</option>
+                  <option>Joriy chorak</option>
+                </select>
+                <label class="sr-only" for="guruh">Guruh filtri</label>
+                <select id="guruh" class="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gov-700">
+                  <option>Barcha guruhlar</option>
+                  <option>Davlat xizmatlari</option>
+                  <option>Xavfsizlik kanallari</option>
+                </select>
+                <button class="rounded-md bg-gov-700 px-3 py-2 text-sm font-semibold text-white hover:bg-gov-800">CSV / Excel eksport</button>
+              </div>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel"><p class="text-sm text-slate-500">Jami guruhlar</p><p class="mt-2 text-2xl font-semibold text-gov-800">142</p></article>
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel"><p class="text-sm text-slate-500">Cheklangan foydalanuvchilar</p><p class="mt-2 text-2xl font-semibold text-gov-800">54</p></article>
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel"><p class="text-sm text-slate-500">Qulfdan chiqarish darajasi</p><p class="mt-2 text-2xl font-semibold text-gov-800">87.4%</p></article>
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel"><p class="text-sm text-slate-500">Bugungi takliflar</p><p class="mt-2 text-2xl font-semibold text-gov-800">1,329</p></article>
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel"><p class="text-sm text-slate-500">Spam ogohlantirishlari</p><p class="mt-2 text-2xl font-semibold text-gov-800">18</p></article>
+            </div>
+
+            <div class="grid gap-4 lg:grid-cols-3">
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel lg:col-span-2">
+                <h3 class="text-base font-semibold text-gov-900">Chiziqli grafik: qulfdan chiqarish trendi</h3>
+                <svg viewBox="0 0 500 180" class="mt-4 h-44 w-full" role="img" aria-label="Qulfdan chiqarish trendi grafigi">
+                  <polyline fill="none" stroke="#2563eb" stroke-width="3" points="20,140 90,120 160,110 230,85 300,72 370,58 440,38" />
+                  <line x1="20" y1="150" x2="470" y2="150" stroke="#94a3b8" />
+                </svg>
+              </article>
+              <article class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+                <h3 class="text-base font-semibold text-gov-900">Ustunli grafik: ogohlantirish turlari</h3>
+                <div class="mt-6 grid h-36 grid-cols-4 items-end gap-3">
+                  <div class="rounded-t bg-gov-100" style="height: 35%"></div>
+                  <div class="rounded-t bg-gov-600" style="height: 82%"></div>
+                  <div class="rounded-t bg-gov-700" style="height: 58%"></div>
+                  <div class="rounded-t bg-gov-800" style="height: 66%"></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="groups" class="space-y-4 rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+            <h2 class="text-xl font-semibold text-gov-900">Guruhlar</h2>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-slate-200">
+                <thead class="bg-slate-50">
+                  <tr class="text-left text-sm font-semibold text-slate-700">
+                    <th class="px-4 py-3">Guruh nomi</th><th class="px-4 py-3">Telegram ID</th><th class="px-4 py-3">Holati</th><th class="px-4 py-3">Taklif talabi</th><th class="px-4 py-3">Faol foydalanuvchilar</th><th class="px-4 py-3">Amallar</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 bg-white">
+                  <tr><td class="px-4 py-3">Jamoat ishlari</td><td class="px-4 py-3">-10029188473</td><td class="px-4 py-3"><span class="rounded-full bg-emerald-100 px-2 py-1 text-xs text-emerald-700">Faol</span></td><td class="px-4 py-3">Haftasiga 3 ta</td><td class="px-4 py-3">1,024</td><td class="px-4 py-3"><button class="mr-2 text-gov-700">Tahrirlash</button><button class="mr-2 text-amber-700">O‘chirish</button><button class="text-slate-700">Statistika</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <dialog open class="w-full rounded-lg border border-slate-200 bg-gov-50 p-4" aria-label="Qoidalarni tahrirlash oynasi">
+              <h3 class="font-semibold text-gov-900">Guruh qoidalarini tahrirlash</h3>
+              <p class="mt-1 text-sm text-slate-600">Takliflar minimumi va suiiste’mol himoyalarini belgilang.</p>
+              <div class="mt-3 flex gap-2">
+                <button class="rounded bg-gov-700 px-3 py-2 text-sm text-white">Saqlash</button>
+                <button class="rounded border border-slate-300 px-3 py-2 text-sm">Bekor qilish</button>
+              </div>
+            </dialog>
+          </section>
+
+          <section id="rules" class="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-panel lg:grid-cols-2">
+            <div>
+              <h2 class="text-xl font-semibold text-gov-900">Qoidalar muharriri</h2>
+              <div class="mt-4 space-y-4">
+                <label class="flex items-center justify-between">Antispam rejimi <input type="checkbox" checked class="h-5 w-10 rounded-full accent-gov-700" /></label>
+                <label class="block text-sm">Taklif chegarasi <input type="number" value="5" min="1" class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2" /></label>
+                <label class="block text-sm">Xavf sezgirligi <input type="range" min="0" max="100" value="62" class="mt-2 w-full accent-gov-700" /></label>
+                <p class="rounded border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800">Validatsiya: Taklif chegarasi 1 dan 25 gacha bo‘lishi kerak.</p>
+              </div>
+            </div>
+            <div class="flex items-end gap-3">
+              <button class="rounded-md bg-gov-700 px-4 py-2 text-sm font-semibold text-white">Saqlash</button>
+              <button class="rounded-md border border-slate-300 px-4 py-2 text-sm">Bekor qilish</button>
+            </div>
+          </section>
+
+          <section id="users" class="space-y-4 rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+            <h2 class="text-xl font-semibold text-gov-900">Foydalanuvchilar</h2>
+            <div class="flex flex-wrap gap-2">
+              <input type="search" placeholder="Foydalanuvchi qidirish" class="min-w-52 flex-1 rounded-md border border-slate-300 px-3 py-2" />
+              <select class="rounded-md border border-slate-300 px-3 py-2"><option>Barcha xavf darajalari</option></select>
+              <select class="rounded-md border border-slate-300 px-3 py-2"><option>Faqat cheklanganlar</option></select>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-slate-200">
+                <thead class="bg-slate-50"><tr class="text-left text-sm font-semibold"><th class="px-4 py-3">Foydalanuvchi</th><th class="px-4 py-3">Takliflar</th><th class="px-4 py-3">Xabarlar</th><th class="px-4 py-3">Xavf</th></tr></thead>
+                <tbody><tr><td class="px-4 py-3">Aziz Diyorov</td><td class="px-4 py-3">14</td><td class="px-4 py-3">263</td><td class="px-4 py-3">O‘rta</td></tr></tbody>
+              </table>
+            </div>
+            <div class="rounded-md border border-gov-100 bg-gov-50 p-4">
+              <h3 class="font-semibold text-gov-900">Foydalanuvchi profili tortmasi</h3>
+              <p class="text-sm text-slate-600">Statistika • Takliflar • Xabarlar • Xavf reytingi</p>
+              <div class="mt-2 flex gap-2"><button class="rounded bg-gov-700 px-3 py-2 text-sm text-white">Qo‘lda ochish</button><button class="rounded border border-slate-300 px-3 py-2 text-sm">Qayta tiklash</button></div>
+            </div>
+            <div class="text-right text-sm text-slate-600">1-sahifa / 24</div>
+          </section>
+
+          <section id="leaderboards" class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+            <div class="mb-3 flex items-center justify-between"><h2 class="text-xl font-semibold text-gov-900">Reytinglar</h2><div class="flex gap-2"><button class="rounded border px-3 py-1 text-sm">Kun</button><button class="rounded border px-3 py-1 text-sm">Hafta</button><button class="rounded border px-3 py-1 text-sm">Oy</button></div></div>
+            <ol class="space-y-2 text-sm">
+              <li class="rounded bg-slate-50 px-3 py-2">🥇 Jamoat operatsiyalari A</li>
+              <li class="rounded bg-slate-50 px-3 py-2">🥈 Xavfsizlik guruhi B</li>
+              <li class="rounded bg-slate-50 px-3 py-2">🥉 Qo‘llab-quvvatlash C</li>
+            </ol>
+          </section>
+
+          <section id="analytics" class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+            <h2 class="text-xl font-semibold text-gov-900">Analitika</h2>
+            <p class="mt-2 text-sm text-slate-600">Guruhlar bo‘yicha faoliyat, dinamik trendlar va samaradorlik ko‘rsatkichlari shu yerda jamlanadi.</p>
+          </section>
+
+          <section id="logs" class="space-y-4 rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+            <h2 class="text-xl font-semibold text-gov-900">Jurnallar</h2>
+            <div class="flex flex-wrap gap-2"><input class="rounded border border-slate-300 px-3 py-2" placeholder="Kengaytirilgan filtr: aktor, teg, amal" /><select class="rounded border border-slate-300 px-3 py-2"><option>Barcha darajalar</option></select></div>
+            <table class="min-w-full divide-y divide-slate-200"><thead><tr class="text-left text-sm font-semibold"><th class="px-4 py-3">Vaqt</th><th class="px-4 py-3">Hodisa</th><th class="px-4 py-3">Jiddiylik</th></tr></thead><tbody><tr><td class="px-4 py-3">2026-02-08 11:21</td><td class="px-4 py-3">43-guruh qoidasi o‘zgartirildi</td><td class="px-4 py-3"><span class="rounded-full bg-orange-100 px-2 py-1 text-xs text-orange-700">ogohlantirish</span></td></tr></tbody></table>
+          </section>
+
+          <section id="alerts" class="rounded-lg border border-slate-200 bg-white p-4 shadow-panel">
+            <h2 class="text-xl font-semibold text-gov-900">Ogohlantirishlar</h2>
+            <ul class="mt-3 space-y-2 text-sm text-slate-700">
+              <li class="rounded border border-rose-100 bg-rose-50 px-3 py-2">Kritik: 5 ta guruhda spam hujumi aniqlandi.</li>
+              <li class="rounded border border-amber-100 bg-amber-50 px-3 py-2">Ogohlantirish: 12 ta foydalanuvchi qayta tekshiruvga yuborildi.</li>
+            </ul>
+          </section>
+
+          <section id="settings" class="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-panel md:grid-cols-2">
+            <h2 class="md:col-span-2 text-xl font-semibold text-gov-900">Sozlamalar</h2>
+            <div class="rounded border border-slate-200 p-3"><h3 class="font-semibold">Adminlarni boshqarish</h3></div>
+            <div class="rounded border border-slate-200 p-3"><h3 class="font-semibold">Parolni almashtirish</h3></div>
+            <div class="rounded border border-slate-200 p-3"><h3 class="font-semibold">API kalitlari</h3></div>
+            <div class="rounded border border-slate-200 p-3"><h3 class="font-semibold">Audit log saqlash muddati</h3></div>
+            <div class="rounded border border-slate-200 p-3 md:col-span-2"><h3 class="font-semibold">Tizim brendingi (logo yuklash)</h3><input type="file" class="mt-2 text-sm" /></div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

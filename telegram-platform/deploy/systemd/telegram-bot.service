@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Moderation Bot (pyTelegramBotAPI)
+After=network.target telegram-backend.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/telegram-platform
+EnvironmentFile=/opt/telegram-platform/.env
+ExecStart=/opt/telegram-platform/.venv/bin/python bot/main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
